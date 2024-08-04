@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const fetchData = async (selectedBrands, selectedTags) => {
-  let url = "http://makeup-api.herokuapp.com/api/v1/products.json";
+  let url = "https://makeup-api.herokuapp.com/api/v1/products.json";
   const params = [];
 
   if (selectedBrands.length) {
