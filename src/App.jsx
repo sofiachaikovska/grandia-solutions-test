@@ -4,6 +4,7 @@ import GroupSwitch from "./components/GroupSwitch/GroupSwitch";
 import FilterSelect from "./components/FilterSelect/FilterSelect";
 import ProductTable from "./components/ProductTable/ProductTable";
 import { fetchData, fetchOptions } from "./components/services/api";
+import Loader from "./components/Loader/Loader";
 
 function App() {
   const [data, setData] = useState([]);
@@ -14,11 +15,14 @@ function App() {
   const [selectedTags, setSelectedTags] = useState([]);
   const [brandOptions, setBrandOptions] = useState([]);
   const [tagOptions, setTagOptions] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchDataAsync = async () => {
+      setLoading(true);
       const data = await fetchData(selectedBrands, selectedTags);
       setData(data);
+      setLoading(false);
     };
 
     fetchDataAsync();
@@ -57,12 +61,25 @@ function App() {
       </Row>
       <Row gutter={[16, 16]}>
         <Col span={24}>
-          <ProductTable
-            data={data}
-            groupByType={groupByType}
-            groupByBrand={groupByBrand}
-            groupByCategory={groupByCategory}
-          />
+          {loading ? (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                marginTop: "100px",
+              }}
+            >
+              <Loader />
+            </div>
+          ) : (
+            <ProductTable
+              data={data}
+              groupByType={groupByType}
+              groupByBrand={groupByBrand}
+              groupByCategory={groupByCategory}
+            />
+          )}
         </Col>
       </Row>
     </div>
