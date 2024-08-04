@@ -1,0 +1,28 @@
+.productTable {
+  border: 1px solid #aeaefb;
+  border-radius: 8px;
+  font-family: "Nunito", sans-serif;
+}
+
+.columnTitle {
+  font-family: "Nunito", sans-serif;
+  color: #7878c3;
+}
+
+.productImage {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  background-image: url("../../images/MakeUp-default-image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 768px) {
+  .productImage {
+    width: 200px;
+    height: 200px;
+  }
+}

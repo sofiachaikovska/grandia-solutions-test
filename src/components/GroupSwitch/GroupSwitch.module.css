@@ -1,0 +1,35 @@
+.groupSwitchContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  background-color: rgb(174, 174, 251);
+  border-radius: 8px;
+  padding: 4px;
+  margin: 2px;
+}
+
+@media screen and (min-width: 768px) {
+  .groupSwitchContainer {
+    flex-direction: row;
+    gap: 16px;
+    padding: 8px;
+  }
+}
+
+.groupSwitchColumn {
+  display: flex;
+  gap: 8px;
+}
+
+.switchOptionLabel {
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .switchOptionLabel {
+    font-size: medium;
+  }
+}
